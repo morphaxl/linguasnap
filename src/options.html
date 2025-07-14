@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaSnap Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LinguaSnap Settings</h1>
+      <p class="subtitle">Configure your translation preferences</p>
+    </header>
+
+    <form id="settingsForm">
+      <div class="form-section">
+        <h2>OpenAI Configuration</h2>
+        
+        <div class="form-group">
+          <label for="apiKey">
+            API Key <span class="required">*</span>
+          </label>
+          <input 
+            type="password" 
+            id="apiKey" 
+            placeholder="sk-..." 
+            required
+            autocomplete="off"
+          >
+          <small>Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></small>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Translation Settings</h2>
+        
+        <div class="form-group">
+          <label for="targetLang">
+            Write Mode Language <span class="required">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="targetLang" 
+            placeholder="e.g., Hindi, Spanish, French, Turkish..." 
+            required
+          >
+          <small>Language for write mode (Cmd+Shift+Y) - replaces your typed text</small>
+        </div>
+
+        <div class="form-group">
+          <label for="readLang">
+            Read Mode Language <span class="required">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="readLang" 
+            placeholder="e.g., English, Spanish, Hindi..." 
+            required
+          >
+          <small>Language for read mode (Cmd+Shift+U) - shows translation in popup</small>
+        </div>
+
+        <div class="form-group">
+          <label for="scriptChoice">
+            Script Type <span class="required">*</span>
+          </label>
+          <select id="scriptChoice" required>
+            <option value="latin">Latin/Roman script (how people text)</option>
+            <option value="native">Native script</option>
+          </select>
+          <small>
+            Latin: "kya haal hai" | Native: "क्या हाल है"
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="stylePrompt">
+            Style/Tone (Optional)
+          </label>
+          <textarea 
+            id="stylePrompt" 
+            rows="3" 
+            placeholder="E.g., 'Professional and polite' or 'Gen-Z slang' or leave empty for casual friend tone"
+          ></textarea>
+          <small>Leave empty for default casual, friendly tone</small>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Keyboard Shortcuts</h2>
+        
+        <div class="shortcut-info">
+          <div class="shortcut-item">
+            <span class="platform">Write Mode (Replace text):</span>
+            <div>
+              <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>Y</kbd> (Mac) |
+              <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Y</kbd> (Win/Linux)
+            </div>
+          </div>
+          <div class="shortcut-item">
+            <span class="platform">Read Mode (Show popup):</span>
+            <div>
+              <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd> (Mac) |
+              <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd> (Win/Linux)
+            </div>
+          </div>
+        </div>
+        
+        <small>
+          To change shortcuts, go to 
+          <a href="#" id="shortcutsLink">chrome://extensions/shortcuts</a>
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="saveBtn" class="btn btn-primary">
+          Save Settings
+        </button>
+      </div>
+    </form>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

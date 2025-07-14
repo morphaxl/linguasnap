@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaSnap</title>
+  <style>
+    body {
+      width: 320px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f9fafb;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 20px;
+    }
+    
+    .info-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 16px;
+    }
+    
+    .info-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    
+    .info-card p {
+      margin: 0;
+      font-size: 13px;
+      color: #718096;
+      line-height: 1.5;
+    }
+    
+    .shortcut {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    
+    kbd {
+      background: #edf2f7;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 12px;
+      font-family: monospace;
+    }
+    
+    .button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    
+    .button:hover {
+      background: #5a67d8;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #48bb78;
+    }
+    
+    .status-dot.error {
+      background: #f56565;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>LinguaSnap</h1>
+  </div>
+  
+  <div class="content">
+    <div id="status" class="status">
+      <span class="status-dot"></span>
+      <span id="statusText">Checking settings...</span>
+    </div>
+    
+    <div class="info-card">
+      <h3>How to use</h3>
+      <p>1. Click on any text field or select text</p>
+      <p>2. Press the keyboard shortcut:</p>
+      <div class="shortcut">
+        <span id="shortcut">Loading...</span>
+      </div>
+      <p style="margin-top: 8px;">3. Your text will be translated instantly!</p>
+    </div>
+    
+    <button id="settingsBtn" class="button">
+      Open Settings
+    </button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
