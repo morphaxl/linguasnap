@@ -460,9 +460,8 @@ function showTranslationPopup(originalText, translatedText, targetLanguage, posi
   
   // Position the popup
   let left = position.x - 200; // Center on selection
-  let top = position.y - 10; // Above selection
   
-  // Keep popup on screen
+  // Keep popup on screen horizontally
   const viewport = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -470,7 +469,37 @@ function showTranslationPopup(originalText, translatedText, targetLanguage, posi
   
   if (left < 10) left = 10;
   if (left + 400 > viewport.width) left = viewport.width - 410;
-  if (top < 10) top = position.y + position.height + 10; // Below selection if no room above
+  
+  // Estimate popup height (approximately 140px based on content)
+  const estimatedPopupHeight = 140;
+  
+  // Determine best vertical position
+  const abovePosition = position.y - estimatedPopupHeight - 10;
+  const belowPosition = position.y + position.height + 10;
+  
+  let top;
+  
+  // Check if popup fits above the selection
+  if (abovePosition >= 10) {
+    top = abovePosition;
+  } 
+  // Check if popup fits below the selection
+  else if (belowPosition + estimatedPopupHeight <= viewport.height - 10) {
+    top = belowPosition;
+  }
+  // If neither fits perfectly, choose the position with more space
+  else {
+    const spaceAbove = position.y - 10;
+    const spaceBelow = viewport.height - (position.y + position.height) - 10;
+    
+    if (spaceAbove > spaceBelow) {
+      // Position at top of available space above
+      top = Math.max(10, position.y - estimatedPopupHeight - 10);
+    } else {
+      // Position at bottom of available space below
+      top = Math.min(belowPosition, viewport.height - estimatedPopupHeight - 10);
+    }
+  }
   
   popup.style.left = `${left}px`;
   popup.style.top = `${top}px`;
