@@ -1,6 +1,6 @@
-# LinguaSnap - Instant Translation Chrome Extension
+# charlie - Instant Translation Chrome Extension
 
-LinguaSnap is a Chrome extension that translates text in-place using OpenAI's GPT-4o-mini model. Simply press a keyboard shortcut while typing in any text field to instantly translate your text to your chosen language.
+charlie is a Chrome extension that translates text in-place using OpenAI's GPT-4o-mini model. Simply press a keyboard shortcut while typing in any text field to instantly translate your text to your chosen language.
 
 ## Features
 
@@ -18,7 +18,7 @@ LinguaSnap is a Chrome extension that translates text in-place using OpenAI's GP
 1. Clone this repository:
    ```bash
    git clone <repository-url>
-   cd linguasnap
+   cd charlie
    ```
 
 2. Install dependencies:
@@ -68,7 +68,7 @@ LinguaSnap is a Chrome extension that translates text in-place using OpenAI's GP
 ### Project Structure
 
 ```
-linguasnap/
+charlie/
 ├── src/
 │   ├── manifest.json    # Extension manifest
 │   ├── background.js    # Service worker
